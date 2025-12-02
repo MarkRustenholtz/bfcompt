@@ -2545,11 +2545,11 @@ generateCompteRendu = function() {
     });
 
     // Service Worker pour PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => console.log("Service Worker enregistré"))
-        .catch(err => console.error("Erreur SW:", err));
-    }
+   // if ('serviceWorker' in navigator) {
+     // navigator.serviceWorker.register('sw.js')
+       // .then(() => console.log("Service Worker enregistré"))
+        //.catch(err => console.error("Erreur SW:", err));
+   // }
   })();
   // --------- NAVIGATION ----------
 function showSection(id) {
