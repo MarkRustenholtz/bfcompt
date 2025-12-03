@@ -3,6 +3,7 @@ const URLS_TO_CACHE = [
   './',
   './index.html',
   './borderforce/index.html',
+  './images/fond-tech.jpg',
   './compteur/index.html'
   // tu peux ajouter d'autres fichiers si tu veux du full offline
 ];
