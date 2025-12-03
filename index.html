@@ -9,11 +9,11 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#003366">
 
-  <!-- Icône iOS (optionnel, adapte le nom si besoin) -->
+  <!-- Icône iOS -->
   <link rel="apple-touch-icon" href="icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Font Awesome (si tu veux des icônes) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -29,43 +29,57 @@
       box-sizing: border-box;
     }
 
+    /* 🌌 Fond d’écran techno */
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, sans-serif;
-      background: var(--fond);
+      background-image: url("images/fond-tech.jpg"); /* ton image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: #222;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 16px;
+      position: relative;
+      overflow: hidden;
       touch-action: manipulation;
     }
 
-    .app {
-      width: 100%;
-      max-width: 480px;
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      padding: 20px 20px 24px;
+    /* voile sombre pour lisibilité */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
     }
 
-    .title {
+    .app {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      padding: 20px 20px 24px;
       text-align: center;
-      margin-bottom: 20px;
     }
 
     .title h1 {
       margin: 0;
       font-size: 1.4rem;
       color: var(--bleu);
+      font-weight: 700;
     }
 
     .title p {
       margin: 4px 0 0;
       font-size: 0.9rem;
-      color: #555;
+      color: #333;
     }
 
     .btn-grid {
@@ -86,7 +100,7 @@
       font-size: 1rem;
       font-weight: 600;
       color: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.1s;
       width: 100%;
       text-align: left;
@@ -125,8 +139,8 @@
       margin-top: 20px;
       text-align: center;
       font-size: 0.75rem;
-font-weight: bold;
-      color:#000000;
+      font-weight: bold;
+      color: #000;
     }
 
     @media (max-width: 480px) {
@@ -137,17 +151,19 @@ font-weight: bold;
     }
   </style>
 </head>
+
 <body>
   <div class="app">
     <div class="title">
       <h1>BORDERFORCE</h1>
       <p>Choisissez le module à ouvrir</p>
     </div>
-<div class="footer">
-     L'application pour le chef du dispositif.
+
+    <div class="footer">
+      L'application pour le chef du dispositif.
     </div>
+
     <div class="btn-grid">
-      <!-- Bouton CR BORDERFORCE -->
       <button class="menu-btn btn-borderforce"
               onclick="openModule('borderforce/index.html')">
         <i class="fas fa-shield-alt"></i>
@@ -157,10 +173,11 @@ font-weight: bold;
         </span>
         <i class="fas fa-arrow-right"></i>
       </button>
-<div class="footer">
-     L'application pour les subordonnés.
-    </div>
-      <!-- Bouton COMPTEUR -->
+
+      <div class="footer">
+        L'application pour les subordonnés.
+      </div>
+
       <button class="menu-btn btn-compteur"
               onclick="openModule('compteur/index.html')">
         <i class="fas fa-chart-bar"></i>
@@ -179,11 +196,9 @@ font-weight: bold;
 
   <script>
     function openModule(path) {
-      // Navigation vers le sous-dossier
       window.location.href = path;
     }
 
-    // Enregistrement du service worker commun
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js')
         .catch(err => console.error('SW registration failed', err));
