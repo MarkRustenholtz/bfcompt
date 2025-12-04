@@ -55,15 +55,13 @@ body {
   /* 🖼️ Fond responsive */
   background-image: url("images/fond-tech3.jpg");
   background-repeat: no-repeat;
-  background-size: contain;          /* ✅ garde toute l’image visible */
-  background-position: center;       /* centre sur tout type d’écran */
+  background-size: contain;          /* ✅ image entière visible */
+  background-position: center;       /* centrée sur tout type d’écran */
   background-color: #003366;         /* zone de sécurité bleue autour */
-  
-  /* 🎬 Effet fixe sur PC */
-  background-attachment: fixed;
+  background-attachment: fixed;      /* effet fixe sur PC */
 
-  /* 🔧 Taille et mise en page */
-  min-height: 100vh;
+  /* ⚙️ Ajustement global */
+  min-height: 100dvh;                /* ✅ nouvelle unité dynamique : plus fiable que 100vh */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,17 +69,23 @@ body {
   touch-action: manipulation;
 }
 
-/* 📱 Correction mobile : désactive le "fixed" (Android/iOS le gère mal) */
-
+/* 📱 Correction mobile : empêche le zoom et recentre tout */
 @media (max-width: 768px) {
   body {
     background-attachment: scroll;
-    background-size: cover;
-    background-position: center top;
+    background-size: cover;          /* Remplit l’écran sans trop zoomer */
+    background-position: center top; /* Garde BORDER FORCE visible */
     background-color: #003366;
     background-repeat: no-repeat;
+
+    /* 👇 Empêche la vignette de remonter */
+    min-height: 100dvh;              /* Utilise la hauteur visible réelle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
+
 @media (min-width: 1400px) {
   body {
     background-size: 90%;
