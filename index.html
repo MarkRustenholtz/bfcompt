@@ -72,11 +72,19 @@ body {
 }
 
 /* 📱 Correction mobile : désactive le "fixed" (Android/iOS le gère mal) */
+
 @media (max-width: 768px) {
   body {
     background-attachment: scroll;
-    background-size: cover;          /* sur mobile : remplissage complet */
-    background-position: center top; /* garde "BORDER FORCE" visible */
+    background-size: cover;
+    background-position: center top;
+    background-color: #003366;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 1400px) {
+  body {
+    background-size: 90%;
   }
 }
 
