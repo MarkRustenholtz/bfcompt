@@ -49,14 +49,14 @@
     } */
     
 /* 🌌 Fond d’écran techno responsive */
-body {
+/*body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, sans-serif;
-  background-image: url("images/fond-tech3.jpg"); /* ton image */
-  background-size: cover;          /* s’adapte à la taille de l’écran */
-  background-position: center top; /* garde le haut visible si rognage */
-  background-repeat: no-repeat;    /* évite les répétitions */
-  background-attachment: fixed;    /* effet de fond fixe sur PC */
+  background-image: url("images/fond-tech3.jpg"); 
+  background-size: cover;         
+  background-position: center top; 
+  background-repeat: no-repeat;    
+  background-attachment: fixed;    
   color: #222;
   min-height: 100vh;
   display: flex;
@@ -67,13 +67,61 @@ body {
   overflow: hidden;
   touch-action: manipulation;
 }
-
+*/
 /* 🔧 Correction pour mobiles (background-attachment: fixed ne marche pas sur Android/iOS) 
 @media (max-width: 768px) {
   body {
     background-attachment: scroll;
   }
 } */
+
+    /* 🌌 Fond d’écran avec zones de sécurité haut/bas */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+  background-image: url("images/fond-tech3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* permet de gérer haut + contenu + bas */
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+/* ✅ Zone de sécurité haute */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8vh; /* hauteur de la marge (8 % de l’écran, modifiable) */
+  background-color: #003366; /* bleu gendarmerie */
+  z-index: 0;
+}
+
+/* ✅ Zone de sécurité basse */
+body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh; /* hauteur de la marge (10 % de l’écran, modifiable) */
+  background-color: #003366; /* bleu gendarmerie */
+  z-index: 0;
+}
+
+/* ✅ Pour que ton contenu reste au-dessus */
+main, .content {
+  position: relative;
+  z-index: 1;
+}
 
     /* voile sombre pour lisibilité */
     /*  body::before {
