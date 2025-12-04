@@ -30,7 +30,7 @@
     }
 
     /* 🌌 Fond d’écran techno */
-    body {
+  /*  body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, sans-serif;
       background-image: url("images/fond-tech3.jpg"); /* ton image */
@@ -46,7 +46,34 @@
       position: relative;
       overflow: hidden;
       touch-action: manipulation;
-    }
+    } */
+    
+/* 🌌 Fond d’écran techno responsive */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+  background-image: url("images/fond-tech3.jpg"); /* ton image */
+  background-size: cover;          /* s’adapte à la taille de l’écran */
+  background-position: center top; /* garde le haut visible si rognage */
+  background-repeat: no-repeat;    /* évite les répétitions */
+  background-attachment: fixed;    /* effet de fond fixe sur PC */
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+/* 🔧 Correction pour mobiles (background-attachment: fixed ne marche pas sur Android/iOS) */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
 
     /* voile sombre pour lisibilité */
     /*  body::before {
@@ -143,12 +170,12 @@
       color: #000;
     }
 
-    @media (max-width: 480px) {
+ /*   @media (max-width: 480px) {
       .app {
         border-radius: 16px;
         padding: 16px;
       }
-    }
+    }*/
   </style>
 </head>
 
