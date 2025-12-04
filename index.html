@@ -247,6 +247,7 @@ body {
       navigator.serviceWorker.register('./service-worker.js')
         .catch(err => console.error('SW registration failed', err));
     }
+      </script>
     <script>
   // 📏 Recalcule la hauteur visible en pixels et l'applique au body
   function setRealHeight() {
@@ -258,7 +259,6 @@ body {
   window.addEventListener("resize", setRealHeight);
   window.addEventListener("focus", setRealHeight);
   window.addEventListener("pageshow", setRealHeight);
-</script>
 
   </script>
 </body>
