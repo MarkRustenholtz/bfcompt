@@ -185,7 +185,22 @@ body {
       font-size: 0.75rem;
       font-weight: bold;
       color: #000;
-    }
+      }
+    /* 📱 Mode "mobile" uniquement pour les écrans vraiment étroits (smartphones) */
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+    background-color: #003366;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
     @media (max-width: 480px) {
       .app {
