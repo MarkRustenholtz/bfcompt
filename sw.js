@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bf-suite-v13';
+const CACHE_NAME = 'bf-suite-v14';
 const URLS_TO_CACHE = [
   './',
   './index.html',
