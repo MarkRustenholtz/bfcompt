@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Suite BorderForce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#003366">
+
+  <!-- Icône iOS -->
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bleu: #003366;
+      --vert: #007b3c;
+      --fond: #f0f2f5;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* 🌌 Fond d’écran techno */
+  /*  body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background-image: url("images/fond-tech3.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      touch-action: manipulation;
+    } */
+    
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+
+  /* 🖼️ Fond responsive */
+  background-image: url("images/fond-tech3.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;          /* ✅ image entière visible */
+  background-position: center;       /* centrée sur tout type d’écran */
+  background-color: #003366;         /* zone de sécurité bleue autour */
+  background-attachment: fixed;      /* effet fixe sur PC */
+
+  /* ⚙️ Ajustement global */
+  min-height: 100dvh;                /* ✅ nouvelle unité dynamique : plus fiable que 100vh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+/* 📱 Correction mobile : empêche le zoom et recentre tout */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;          /* Remplit l’écran sans trop zoomer */
+    background-position: center top; /* Garde BORDER FORCE visible */
+    background-color: #003366;
+    background-repeat: no-repeat;
+
+    /* 👇 Empêche la vignette de remonter */
+    min-height: 100vh;              /* Utilise la hauteur visible réelle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  body {
+    background-size: 90%;
+  }
+}
+
+    /* voile sombre pour lisibilité */
+    /*  body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+    }*/
+
+    .app {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      padding: 20px 20px 24px;
+      text-align: center;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--bleu);
+      font-weight: 700;
+    }
+
+    .title p {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.1s;
+      width: 100%;
+      text-align: left;
+    }
+
+    .menu-btn i {
+      font-size: 1.5rem;
+    }
+
+    .menu-btn span {
+      flex: 1;
+    }
+
+    .menu-btn small {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: .9;
+    }
+
+    .menu-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      opacity: 0.9;
+    }
+
+    .btn-borderforce {
+      background: linear-gradient(135deg, #003366, #1f6fb2);
+    }
+
+    .btn-compteur {
+      background: linear-gradient(135deg, #007b3c, #27ae60);
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #000;
+    }
+
+    @media (max-width: 480px) {
+      .app {
+        border-radius: 16px;
+        padding: 16px;
+      }
+    } 
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="title">
+      <h1>Choisissez l'application</h1>
+      <p>selon votre fonction</p>
+    </div>
+
+    <div class="footer">
+      L'application pour le chef du dispositif:
+    </div>
+
+    <div class="btn-grid">
+      <button class="menu-btn btn-borderforce"
+              onclick="openModule('borderforce/index.html')">
+        <i class="fas fa-shield-alt"></i>
+        <span>
+          CR BORDERFORCE
+          <small>ESR, ESI, passeurs, matériel, CR…</small>
+        </span>
+        <i class="fas fa-arrow-right"></i>
+      </button>
+
+      <div class="footer">
+        L'application pour les subordonnés:
+      </div>
+
+      <button class="menu-btn btn-compteur"
+              onclick="openModule('compteur/index.html')">
+        <i class="fas fa-chart-bar"></i>
+        <span>
+          COMPTEUR
+          <small>Véhicules & personnes contrôlées</small>
+        </span>
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="footer">
+      Une seule appli installée, deux outils embarqués.
+    </div>
+  </div>
+
+  <script>
+    function openModule(path) {
+      window.location.href = path;
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .catch(err => console.error('SW registration failed', err));
+    }
+      </script>
+    <script>
+  // 📏 Recalcule la hauteur visible en pixels et l'applique au body
+  function setRealHeight() {
+    document.body.style.minHeight = window.innerHeight + "px";
+  }
+
+  // 🔄 On met à jour au chargement, au redimensionnement, et quand on revient sur la page
+  window.addEventListener("load", setRealHeight);
+  window.addEventListener("resize", setRealHeight);
+  window.addEventListener("focus", setRealHeight);
+  window.addEventListener("pageshow", setRealHeight);
+
+  </script>
+</body>
+</html>
