@@ -70,21 +70,34 @@ body {
 }
 
 /* 📱 Correction mobile : empêche le zoom et recentre tout */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   body {
     background-attachment: scroll;
-    background-size: cover;          /* Remplit l’écran sans trop zoomer */
-    background-position: center top; /* Garde BORDER FORCE visible */
+    background-size: cover;          
+    background-position: center top; 
     background-color: #003366;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
 
     /* 👇 Empêche la vignette de remonter */
-    min-height: 100vh;              /* Utilise la hauteur visible réelle */
+  /*  min-height: 100vh;              
     display: flex;
     align-items: center;
     justify-content: center;
   }
-}
+} */
+    @media (max-width: 768px) and (min-aspect-ratio: 4/3) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+    background-color: #003366;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+    }
 
 @media (min-width: 1400px) {
   body {
