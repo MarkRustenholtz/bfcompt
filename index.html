@@ -186,7 +186,21 @@ body {
       font-weight: bold;
       color: #000;
     }
+/* 📱 Mode "mobile" uniquement pour les écrans vraiment étroits (smartphones) */
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+    background-color: #003366;
+    background-repeat: no-repeat;
 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
     @media (max-width: 480px) {
       .app {
         border-radius: 16px;
@@ -248,18 +262,6 @@ body {
         .catch(err => console.error('SW registration failed', err));
     }
       </script>
-    <script>
-  // 📏 Recalcule la hauteur visible en pixels et l'applique au body
-  function setRealHeight() {
-    document.body.style.minHeight = window.innerHeight + "px";
-  }
-
-  // 🔄 On met à jour au chargement, au redimensionnement, et quand on revient sur la page
-  window.addEventListener("load", setRealHeight);
-  window.addEventListener("resize", setRealHeight);
-  window.addEventListener("focus", setRealHeight);
-  window.addEventListener("pageshow", setRealHeight);
-
-  </script>
+ 
 </body>
 </html>
