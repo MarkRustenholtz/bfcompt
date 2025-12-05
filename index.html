@@ -201,6 +201,13 @@ body {
     justify-content: center;
   }
 }
+    /* 🧩 Ajustement spécial pour tablettes 4:3 (Asus ZenPad, iPad, etc.) */
+@media (min-width: 601px) and (max-aspect-ratio: 3/4) {
+  body {
+    background-size: contain;          /* garde l’image entière */
+    background-position: center bottom;/* montre davantage le bas (GENDARMERIE) */
+  }
+}
 
     @media (max-width: 480px) {
       .app {
