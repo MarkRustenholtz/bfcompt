@@ -577,9 +577,25 @@ span[id$="Count"] {
 </style>
 </head>
 <body>
-
 <div id="homePage" class="page active">
-  <h1 class="home-title">GENDARMERIE<br> Moyens / Personnes</h1>
+  <h1 class="home-title">
+    <button onclick="window.location.href='../index.html'" style="
+      float:left;
+      margin-right:10px;
+      background:white;
+      color:#007b3c;
+      border:none;
+      border-radius:6px;
+      padding:4px 8px;
+      font-size:0.9em;
+      cursor:pointer;
+      box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    ">
+      🏠 Accueil
+    </button>
+    BORDERFORCE<br> Moyens / Personnes
+  </h1>
+
   <div class="home-menu">
    <button class="icon-button icon-infosite" onclick="showPage('infositePage')">
       <i class="fas fa-map-marker-alt gps-pin"></i>
